@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">rumahjurnal</string>
+    <string name="login">Login</string>
+    <string name="daftar">Daftar</string>
+    <string name="email">Masukkan Email</string>
+    <string name="pass">Masukkan Password</string>
+    <string name="nama">Masukkan Nama</string>
+</resources>

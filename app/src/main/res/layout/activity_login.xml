@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".LoginActivity"
+    android:background="@drawable/bg_image"
+    android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/selamat_datang"
+        android:layout_marginTop="200dp"
+        android:layout_marginLeft="50dp"
+        tools:layout_editor_absoluteX="56dp"
+        tools:layout_editor_absoluteY="168dp" />
+
+    <EditText
+        android:id="@+id/login_email"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/frame"
+        android:inputType="textEmailAddress"
+        tools:layout_editor_absoluteX="56dp"
+        tools:layout_editor_absoluteY="287dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginLeft="50dp"
+        android:hint="@string/email"
+        android:paddingLeft="20dp"/>
+
+    <EditText
+        android:id="@+id/login_pass"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/frame"
+        tools:layout_editor_absoluteX="56dp"
+        tools:layout_editor_absoluteY="380dp"
+        android:inputType="textPassword"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="50dp"
+        android:hint="@string/pass"
+        android:paddingLeft="20dp"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:width="342dp"
+        android:height="64dp"
+        android:backgroundTint="@color/ungu"
+        android:text="@string/login"
+        tools:layout_editor_absoluteX="56dp"
+        tools:layout_editor_absoluteY="483dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="50dp"/>
+
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/pengguna_baru"
+        tools:layout_editor_absoluteX="130dp"
+        tools:layout_editor_absoluteY="596dp"
+        android:layout_marginLeft="130dp"
+        android:layout_marginTop="60dp"/>
+
+
+</LinearLayout>
