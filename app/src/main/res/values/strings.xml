@@ -5,4 +5,24 @@
     <string name="email">Masukkan Email</string>
     <string name="pass">Masukkan Password</string>
     <string name="nama">Masukkan Nama</string>
+    <string name="create">Buat Data Jurnal Baru</string>
+    <string name="judul_jurna">Judul Jurnal</string>
+    <string name="nama_jurnal">Nama Jurnal</string>
+    <string name="volume">Volume</string>
+    <string name="issn">ISSN</string>
+    <string name="doi">DOI</string>
+    <string name="tahun">Tahun</string>
+    <string name="penulis">Penulis</string>
+    <string name="batal">Batal</string>
+    <string name="simpan">Simpan</string>
+    <string-array name="tahun">
+        <item>Pilih Tahun</item>
+    </string-array>
+    <string-array name="kategori">
+        <item>Pilih Kategori</item>
+    </string-array>
+    <string name="upload_jurnal">Klik untuk memasukkan PDF jurnal</string>
+    <string name="edit">Edit Data Jurnal</string>
+    <string name="view">View Data Jurnal</string>
+    <string name="kategori_jurnal">Kategori</string>
 </resources>

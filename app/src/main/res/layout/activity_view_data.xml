@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/bg_image"
+    tools:context=".ViewDataActivity">
+
+
+    <TextView
+        android:id="@+id/createData"
+        android:text="@string/view"
+        android:layout_width="276dp"
+        android:layout_height="33dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="78dp"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        android:textColor="@color/black"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/rectangle_2"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/judul_jurna"
+                android:layout_width="71dp"
+                android:layout_height="18dp"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="30dp"
+                android:gravity="top"
+                android:letterSpacing="-0.02"
+                android:text="@string/judul_jurna"
+                android:textColor="@color/abu"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/viewJudul"
+                android:layout_width="291dp"
+                android:layout_height="28dp"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/rectangle_1"/>
+
+            <TextView
+                android:id="@+id/nama_jurnal"
+                android:layout_width="71dp"
+                android:layout_height="18dp"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="10dp"
+                android:gravity="top"
+                android:letterSpacing="-0.02"
+                android:text="@string/nama_jurnal"
+                android:textColor="@color/abu"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/viewNama"
+                android:layout_width="291dp"
+                android:layout_height="28dp"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/rectangle_1"/>
+
+            <TextView
+                android:id="@+id/volume_jurnal"
+                android:layout_width="71dp"
+                android:layout_height="18dp"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="10dp"
+                android:gravity="top"
+                android:letterSpacing="-0.02"
+                android:text="@string/volume"
+                android:textColor="@color/abu"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/viewVol"
+                android:layout_width="291dp"
+                android:layout_height="28dp"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/rectangle_1"/>
+
+            <TextView
+                android:id="@+id/issn_jurnal"
+                android:layout_width="71dp"
+                android:layout_height="18dp"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="10dp"
+                android:gravity="top"
+                android:letterSpacing="-0.02"
+                android:text="@string/issn"
+                android:textColor="@color/abu"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/viewIssn"
+                android:layout_width="291dp"
+                android:layout_height="28dp"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/rectangle_1"/>
+
+            <TextView
+                android:id="@+id/doi_jurnal"
+                android:layout_width="71dp"
+                android:layout_height="18dp"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="10dp"
+                android:gravity="top"
+                android:letterSpacing="-0.02"
+                android:text="@string/doi"
+                android:textColor="@color/abu"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/viewDoi"
+                android:layout_width="291dp"
+                android:layout_height="28dp"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/rectangle_1"/>
+
+            <TextView
+                android:id="@+id/tahun_jurnal"
+                android:layout_width="71dp"
+                android:layout_height="18dp"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="10dp"
+                android:gravity="top"
+                android:letterSpacing="-0.02"
+                android:text="@string/tahun"
+                android:textColor="@color/abu"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/viewTahun"
+                android:layout_width="291dp"
+                android:layout_height="28dp"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/rectangle_1"/>
+
+            <TextView
+                android:id="@+id/penulis_jurnal"
+                android:layout_width="71dp"
+                android:layout_height="18dp"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="10dp"
+                android:gravity="top"
+                android:letterSpacing="-0.02"
+                android:text="@string/penulis"
+                android:textColor="@color/abu"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/viewPenulis"
+                android:layout_width="291dp"
+                android:layout_height="28dp"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/rectangle_1"/>
+
+            <TextView
+                android:id="@+id/kategori_jurnal"
+                android:layout_width="71dp"
+                android:layout_height="18dp"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="10dp"
+                android:gravity="top"
+                android:letterSpacing="-0.02"
+                android:text="@string/kategori_jurnal"
+                android:textColor="@color/abu"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/viewKategori"
+                android:layout_width="291dp"
+                android:layout_height="28dp"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/rectangle_1"/>
+
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="98dp"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginLeft="120dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/ic_file" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="30dp"
+                android:layout_marginLeft="30dp">
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/button_frame"
+                    android:text="@string/batal"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="10dp"
+                    android:textColor="@color/blue" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="45dp"
+                    android:layout_marginRight="30dp"
+                    android:background="@drawable/button_frame"
+                    android:text="@string/simpan"
+                    android:textColor="@color/blue" />
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+
+    </ScrollView>
+
+
+</LinearLayout>
