@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="90dp"
+    android:orientation="vertical"
+    >
+
+    <androidx.cardview.widget.CardView
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/jurnal_cardview"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_marginVertical="5dp"
+        android:layout_marginHorizontal="20dp"
+        app:cardBackgroundColor="@color/white"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="5dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:layout_marginLeft="15dp"
+                android:src="@drawable/ic_jurnal"/>
+
+            <LinearLayout
+                android:layout_width="150dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:layout_marginLeft="15dp"
+                android:orientation="vertical">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/judul_jurnal"
+                    android:layout_width="match_parent"
+                    android:layout_height="20dp"
+                    android:fontFamily="@font/roboto_medium"
+                    android:text="Judul Jurnal"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"/>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/nama_penulis"
+                    android:layout_width="match_parent"
+                    android:layout_height="15dp"
+                    android:fontFamily="@font/roboto_regular"
+                    android:text="Nama Penulis"
+                    android:textColor="#69BCC8"
+                    android:textSize="10sp"/>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/doi"
+                    android:layout_width="match_parent"
+                    android:layout_height="15dp"
+                    android:fontFamily="@font/roboto_regular"
+                    android:text="DOI"
+                    android:textColor="#69BCC8"
+                    android:textSize="10sp"/>
+
+            </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="125dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:layout_marginLeft="15dp"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="15dp"
+                android:layout_marginBottom="5dp"
+                android:orientation="horizontal">
+
+                <androidx.appcompat.widget.AppCompatImageButton
+                    android:id="@+id/buka_jurnal"
+                    android:layout_width="27dp"
+                    android:layout_height="27dp"
+                    android:layout_marginHorizontal="2dp"
+                    android:src="@drawable/ic_detail_jurnal_open"
+                    android:background="@null"/>
+
+                <androidx.appcompat.widget.AppCompatImageButton
+                    android:id="@+id/edit_jurnal"
+                    android:layout_width="27dp"
+                    android:layout_height="27dp"
+                    android:layout_marginHorizontal="2dp"
+                    android:src="@drawable/ic_jurnal_edit"
+                    android:background="@null"/>
+
+                <androidx.appcompat.widget.AppCompatImageButton
+                    android:id="@+id/delete_jurnal"
+                    android:layout_width="27dp"
+                    android:layout_height="27dp"
+                    android:layout_marginHorizontal="2dp"
+                    android:src="@drawable/ic_jurnal_delete"
+                    android:background="@null"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="115dp"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="50dp"
+                    android:layout_height="15dp"
+                    android:fontFamily="@font/roboto_bold"
+                    android:text="Tahun Terbit"
+                    android:textColor="@color/black"
+                    android:textSize="10sp"
+                    android:textAlignment="textStart"/>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tahun_terbit"
+                    android:layout_width="match_parent"
+                    android:layout_height="15dp"
+                    android:fontFamily="@font/roboto_regular"
+                    android:text="2000"
+                    android:textColor="#69BCC8"
+                    android:textSize="10sp"
+                    android:textAlignment="textEnd"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+
+</LinearLayout>
