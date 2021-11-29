@@ -9,6 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Rumahjurnal">
+        <activity android:name=".ViewPdfActivity"></activity>
         <activity android:name=".DaftarJurnalActivity" />
         <activity android:name=".DaftarJurnalUserActivity" />
         <activity android:name=".RegisterActivity" />
