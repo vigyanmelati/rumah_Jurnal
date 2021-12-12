@@ -8,15 +8,15 @@
     android:background="@drawable/bg_image"
     tools:context=".RegisterActivity">
 
-    <ImageView
-        android:id="@+id/imageView4"
-        android:layout_marginTop="150dp"
-        android:layout_marginLeft="50dp"
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:srcCompat="@drawable/buat_akunbaru"
-        tools:layout_editor_absoluteX="44dp"
-        tools:layout_editor_absoluteY="144dp" />
+        android:text="@string/buat"
+        android:fontFamily="@font/roboto_bold"
+        android:textSize="28dp"
+        android:layout_marginTop="130dp"
+        android:layout_marginLeft="50dp"
+        android:textColor="@color/black"/>
 
     <EditText
         android:id="@+id/regis_nama"
@@ -68,6 +68,7 @@
         android:layout_marginTop="20dp"/>
 
     <Button
+        android:id="@+id/btn_daftar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:width="342dp"
@@ -79,13 +80,30 @@
         android:layout_marginTop="30dp"
         android:layout_marginLeft="50dp"/>
 
-    <ImageView
-        android:id="@+id/imageView7"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:srcCompat="@drawable/pengguna"
-        tools:layout_editor_absoluteX="130dp"
-        tools:layout_editor_absoluteY="596dp"
-        android:layout_marginLeft="100dp"
-        android:layout_marginTop="60dp"/>
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize= "16sp"
+            android:text="@string/daftar_text"
+            android:fontFamily="@font/roboto_black"
+            android:layout_marginLeft="100dp"
+            android:layout_marginTop="60dp"/>
+
+        <TextView
+            android:id="@+id/tv_login"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize= "16sp"
+            android:text="@string/logIn"
+            android:fontFamily="@font/roboto_black"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="60dp"
+            android:textColor="@color/blue"/>
+
+    </LinearLayout>
 </LinearLayout>

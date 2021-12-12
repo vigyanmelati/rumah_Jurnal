@@ -21,17 +21,20 @@
     <string name="tahun">Tahun</string>
     <string name="penulis">Penulis</string>
     <string name="kategori">Kategori</string>
+    <string name="user">Id User</string>
     <string name="upload_jurnal">Klik untuk memasukkan PDF Jurnal</string>
     <string name="batal">Batal</string>
     <string name="simpan">Simpan</string>
     <string name="edit">Edit Data Jurnal</string>
     <string name="view">View Data Jurnal</string>
     <string-array name="tahun">
+        <item>Pilih Tahun Terbit</item>
         <item>2019</item>
         <item>2020</item>
         <item>2021</item>
     </string-array>
     <string-array name="kategori">
+        <item>Pilih Kategori</item>
         <item>Teknologi</item>
         <item>Sosial</item>
         <item>Kesehatan</item>
@@ -48,4 +51,7 @@
     <string name="menu_home">Home</string>
     <string name="menu_gallery">Gallery</string>
     <string name="menu_slideshow">Slideshow</string>
+    <string name="buat">Buat Akun Baru</string>
+    <string name="daftar_text">Sudah Menjadi Pengguna?</string>
+    <string name="logIn">Log In</string>
 </resources>

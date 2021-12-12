@@ -31,5 +31,13 @@ public class LoginActivity extends AppCompatActivity {
                 startActivity(intent1);
             }
         });
+
+        tv_signup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent2 = new Intent(getApplicationContext(), RegisterActivity.class);
+                startActivity(intent2);
+            }
+        });
     }
 }
