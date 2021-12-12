@@ -12,6 +12,22 @@
     <string name="nav_header_subtitle">android.studio@android.com</string>
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
+    <string name="create">Buat Data Jurnal Baru</string>
+    <string name="judul_jurnal">Judul Jurnal</string>
+    <string name="nama_jurnal">Nama Jurnal</string>
+    <string name="volume">Volume</string>
+    <string name="issn">ISSN</string>
+    <string name="doi">DOI</string>
+    <string name="tahun">Tahun</string>
+    <string name="penulis">Penulis</string>
+    <string name="kategori">Kategori</string>
+    <string name="upload_jurnal">Klik untuk memasukkan PDF Jurnal</string>
+    <string name="batal">Batal</string>
+    <string name="simpan">Simpan</string>
+    <string name="edit">Edit Data Jurnal</string>
+    <string name="view">View Data Jurnal</string>
+
+
 
     <string name="menu_home">Home</string>
     <string name="menu_gallery">Gallery</string>

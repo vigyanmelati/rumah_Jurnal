@@ -42,7 +42,7 @@
                 android:layout_marginTop="30dp"
                 android:gravity="top"
                 android:letterSpacing="-0.02"
-                android:text="@string/judul_jurna"
+                android:text="@string/judul_jurnal"
                 android:textColor="@color/abu"
                 android:textSize="12sp" />
 
