@@ -218,7 +218,7 @@
                 android:layout_marginTop="10dp"
                 android:gravity="top"
                 android:letterSpacing="-0.02"
-                android:text="@string/kategori_jurnal"
+                android:text="@string/kategori"
                 android:textColor="@color/abu"
                 android:textSize="12sp" />
 

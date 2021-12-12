@@ -26,9 +26,25 @@
     <string name="simpan">Simpan</string>
     <string name="edit">Edit Data Jurnal</string>
     <string name="view">View Data Jurnal</string>
-
-
-
+    <string-array name="tahun">
+        <item>2019</item>
+        <item>2020</item>
+        <item>2021</item>
+    </string-array>
+    <string-array name="kategori">
+        <item>Teknologi</item>
+        <item>Sosial</item>
+        <item>Kesehatan</item>
+    </string-array>
+    <string name="welcome">Selamat Datang</string>
+    <string name="nama_app">Rumah Jurnal</string>
+    <string name="desc_app">Aplikasi Kumpulan Jurnal</string>
+    <string name="baru">Pengguna Baru?</string>
+    <string name="signup">Sign Up</string>
+    <string name="menu1">Daftar Jurnal Umum</string>
+    <string name="menu2">Daftar Jurnal Anda</string>
+    <string name="menu3">Edit Profil</string>
+    <string name="menu4">Tentang Kami</string>
     <string name="menu_home">Home</string>
     <string name="menu_gallery">Gallery</string>
     <string name="menu_slideshow">Slideshow</string>
