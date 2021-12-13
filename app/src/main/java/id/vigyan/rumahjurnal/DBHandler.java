@@ -94,4 +94,19 @@ public class DBHandler extends SQLiteOpenHelper {
     public void updateDataUser(ContentValues values, long id){
         db.update(table_user,values,row_id_user + "=" + id, null);
     }
+    
+    public boolean checkUser(String email, String password){
+        SQLiteDatabase DB = this.getWritableDatabase();
+        String [] columns = {row_id_user};
+        String selections = row_email + "=?" + " and " + row_password + "=?";
+        String [] selectionArgs = {email, password};
+        Cursor cursor = db.query(table_user, columns, selections, selectionArgs, null, null, null);
+        int count = cursor.getCount();
+        db.close();
+        if(count>0){
+            return true;
+        }else{
+            return false;
+        }
+    }
 }

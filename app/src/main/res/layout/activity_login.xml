@@ -80,6 +80,7 @@
             android:fontFamily="@font/roboto_black"
             android:layout_marginLeft="5dp"
             android:layout_marginTop="60dp"
+            android:clickable="true"
             android:textColor="@color/blue"/>
 
     </LinearLayout>
