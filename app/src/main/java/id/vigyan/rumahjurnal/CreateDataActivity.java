@@ -4,26 +4,44 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.ContentValues;
 import android.content.Intent;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.text.Editable;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
+import android.widget.Toast;
 
 public class CreateDataActivity extends AppCompatActivity {
     private EditText createJudul, createNama, createVol, createIssn, createDoi, createPenulis, createIdUser;
     private Spinner createTahun, createKategori;
     private Button btn_simpan, btn_batal;
+    private TextView create_data;
     String judul, nama, vol, issn, doi,penulis, tahun, kategori;
     int id_user;
     DBHandler dbHandler;
+    private long id;
+    private Intent intent2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_data);
 
+        intent2 = getIntent();
+        id = intent2.getLongExtra(DBHandler.row_id_jurnal,0);
+
+        if(intent2.hasExtra(DBHandler.row_id_jurnal)){
+//            create_data.setText("Edit Data Jurnal");
+            setTitle("Edit Data");
+        }else{
+//            create_data.setText("Buat Data Jurnal Baru");
+            setTitle("Tambah Data");
+        }
+
+        create_data = findViewById(R.id.createData);
         createJudul = findViewById(R.id.createJudul);
         createNama = findViewById(R.id.createNama);
         createVol = findViewById(R.id.createVol);
@@ -38,6 +56,21 @@ public class CreateDataActivity extends AppCompatActivity {
         btn_batal = findViewById(R.id.btn_batal);
         btn_batal.setOnClickListener(clickListener);
         dbHandler = new DBHandler(this);
+        getData();
+    }
+
+    private void getData(){
+        Cursor cursor = dbHandler.getDataJurnal(id);
+        if(cursor.moveToFirst()){
+            String juduldb = cursor.getString(cursor.getColumnIndex(DBHandler.row_jurnal));
+            String namadb = cursor.getString(cursor.getColumnIndex(DBHandler.row_nama_jurnal));
+            String voldb = cursor.getString(cursor.getColumnIndex(DBHandler.row_volume));
+            String issndb = cursor.getString(cursor.getColumnIndex(DBHandler.row_issn));
+            String doidb = cursor.getString(cursor.getColumnIndex(DBHandler.row_doi));
+            String penulisdb = cursor.getString(cursor.getColumnIndex(DBHandler.row_penulis));
+            int id_userdb = cursor.getInt(cursor.getColumnIndex(DBHandler.row_id_user));
+        }
+
     }
 
     public View.OnClickListener clickListener = new View.OnClickListener() {
@@ -49,6 +82,7 @@ public class CreateDataActivity extends AppCompatActivity {
                     startActivity(intentbatal);
                     break;
                 case R.id.btn_simpan :
+                    Toast.makeText(CreateDataActivity.this, "Data Berhasil Disimpan", Toast.LENGTH_SHORT).show();
                     judul = createJudul.getText().toString();
                     nama = createNama.getText().toString();
                     vol = createVol.getText().toString();
@@ -66,10 +100,11 @@ public class CreateDataActivity extends AppCompatActivity {
                     values.put(DBHandler.row_issn, issn);
                     values.put(DBHandler.row_doi, doi);
                     values.put(DBHandler.row_penulis, penulis);
-                    values.put(DBHandler.row_id_user, id_user);
+                    values.put(DBHandler.row_id_user_jurnal, id_user);
                     values.put(DBHandler.row_tahun, tahun);
                     values.put(DBHandler.row_kategori, kategori);
                     dbHandler.insertDataJurnal(values);
+
                     break;
             }
         }

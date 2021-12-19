@@ -54,4 +54,6 @@
     <string name="buat">Buat Akun Baru</string>
     <string name="daftar_text">Sudah Menjadi Pengguna?</string>
     <string name="logIn">Log In</string>
+    <string name="edit_pop">Edit Data</string>
+    <string name="hapus">Hapus Data</string>
 </resources>
