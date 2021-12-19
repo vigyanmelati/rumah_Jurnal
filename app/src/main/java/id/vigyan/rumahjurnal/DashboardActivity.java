@@ -38,7 +38,7 @@ public class DashboardActivity extends AppCompatActivity {
                 case R.id.daftarJurnalUmum : intent = new Intent(DashboardActivity.this,DaftarJurnalActivity.class);startActivity(intent);break;
                 case R.id.daftarJurnalAnda : intent = new Intent(DashboardActivity.this,DaftarJurnalUserActivity.class);startActivity(intent);break;
                 case R.id.editProfil : intent = new Intent(DashboardActivity.this,MainActivity.class);startActivity(intent);break;
-                case R.id.tentangKami : intent = new Intent(DashboardActivity.this,MainActivity.class);startActivity(intent);break;
+                case R.id.tentangKami : intent = new Intent(DashboardActivity.this,AboutUsActivity.class);startActivity(intent);break;
                 case R.id.logout : intent = new Intent(DashboardActivity.this,LoginActivity.class);startActivity(intent);break;
                 default:break;
             }
