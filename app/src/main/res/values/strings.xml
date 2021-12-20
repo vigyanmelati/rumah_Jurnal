@@ -56,4 +56,6 @@
     <string name="logIn">Log In</string>
     <string name="edit_pop">Edit Data</string>
     <string name="hapus">Hapus Data</string>
+    <string name="sukses">Success!</string>
+    <string name="isi_alert">Data jurnal Anda berhasil disimpan</string>
 </resources>

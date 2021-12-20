@@ -1,12 +1,15 @@
 package id.vigyan.rumahjurnal;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.ContentValues;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.text.Editable;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -24,6 +27,9 @@ public class CreateDataActivity extends AppCompatActivity {
     DBHandler dbHandler;
     private long id;
     private Intent intent2;
+    AlertDialog.Builder dialog;
+    LayoutInflater inflater;
+    View dialogView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,7 +74,17 @@ public class CreateDataActivity extends AppCompatActivity {
             String issndb = cursor.getString(cursor.getColumnIndex(DBHandler.row_issn));
             String doidb = cursor.getString(cursor.getColumnIndex(DBHandler.row_doi));
             String penulisdb = cursor.getString(cursor.getColumnIndex(DBHandler.row_penulis));
-            int id_userdb = cursor.getInt(cursor.getColumnIndex(DBHandler.row_id_user));
+//            String tahundb = cursor.getString(cursor.getColumnIndex(DBHandler.row_tahun));
+//            String kategoridb = cursor.getString(cursor.getColumnIndex(DBHandler.row_kategori));
+            int id_userdb = cursor.getInt(cursor.getColumnIndex(DBHandler.row_id_user_jurnal));
+
+            createJudul.setText(juduldb);
+            createNama.setText(namadb);
+            createVol.setText(voldb);
+            createIssn.setText(issndb);
+            createDoi.setText(doidb);
+            createPenulis.setText(penulisdb);
+            createIdUser.setText(String.valueOf(id_userdb));
         }
 
     }
@@ -83,6 +99,7 @@ public class CreateDataActivity extends AppCompatActivity {
                     break;
                 case R.id.btn_simpan :
                     Toast.makeText(CreateDataActivity.this, "Data Berhasil Disimpan", Toast.LENGTH_SHORT).show();
+                    DialogForm();
                     judul = createJudul.getText().toString();
                     nama = createNama.getText().toString();
                     vol = createVol.getText().toString();
@@ -103,10 +120,39 @@ public class CreateDataActivity extends AppCompatActivity {
                     values.put(DBHandler.row_id_user_jurnal, id_user);
                     values.put(DBHandler.row_tahun, tahun);
                     values.put(DBHandler.row_kategori, kategori);
-                    dbHandler.insertDataJurnal(values);
-
+                    if(intent2.hasExtra(DBHandler.row_id_jurnal)){
+                        dbHandler.updateDataJurnal(values,id);
+                    }else {
+                        dbHandler.insertDataJurnal(values);
+                    }
                     break;
             }
         }
     };
+
+    private void DialogForm(){
+        dialog = new AlertDialog.Builder(CreateDataActivity.this);
+        inflater = getLayoutInflater();
+        dialogView = inflater.inflate(R.layout.alert_dialogs, null);
+        dialog.setView(dialogView);
+        dialog.setCancelable(true);
+
+        dialog.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+
+                Intent intent1 = new Intent(CreateDataActivity.this, DaftarJurnalUserActivity.class);
+                startActivity(intent1);
+            }
+        }).setNegativeButton("Batal", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+            }
+        });
+
+        dialog.show();
+
+    }
 }

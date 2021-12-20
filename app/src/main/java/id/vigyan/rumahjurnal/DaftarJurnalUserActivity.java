@@ -64,7 +64,7 @@ public class DaftarJurnalUserActivity extends AppCompatActivity {
                         linearEditData.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
-                                Intent editData = new Intent(DaftarJurnalUserActivity.this, MainActivity.class);
+                                Intent editData = new Intent(DaftarJurnalUserActivity.this, CreateDataActivity.class);
                                 editData.putExtra(DBHandler.row_id_jurnal, id);
                                 startActivity(editData);
                                 popupData.dismiss();
@@ -104,10 +104,14 @@ public class DaftarJurnalUserActivity extends AppCompatActivity {
 
                     }
                 });
-
+                popupData.show();
             }
         });
+    }
 
-
+    @Override
+    protected void onResume() {
+        super.onResume();
+        dataAdapter.swapCursor(database.getAllDataJurnal());
     }
 }
