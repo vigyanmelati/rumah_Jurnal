@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Rumahjurnal">
-        <activity android:name=".AboutUsActivity"></activity>
+        <activity android:name=".TentangKamiActivity"></activity>
+        <activity android:name=".AboutUsActivity" />
         <activity android:name=".DashboardActivity" />
         <activity android:name=".ViewPdfActivity" />
         <activity android:name=".DaftarJurnalActivity" />
