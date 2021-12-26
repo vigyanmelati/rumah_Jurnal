@@ -18,6 +18,8 @@ import android.widget.LinearLayout;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
+import id.vigyan.rumahjurnal.Auth.Auth;
+
 public class DaftarJurnalUserActivity extends AppCompatActivity {
     private RecyclerView jurnal_list;
     private DaftarJurnalUserAdapter dataAdapter;
@@ -25,6 +27,7 @@ public class DaftarJurnalUserActivity extends AppCompatActivity {
     private FloatingActionButton tambah_jurnal;
     private LinearLayout linearEditData, linearHapusData;
     private Button btn_batalPopup;
+    Long curent_user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,9 +45,9 @@ public class DaftarJurnalUserActivity extends AppCompatActivity {
         });
 
         jurnal_list = findViewById(R.id.jurnal_list);
-
+        curent_user = Auth.getInstance().getPreferenceCurentUser(DaftarJurnalUserActivity.this);
         jurnal_list.setLayoutManager(new LinearLayoutManager(this));
-        dataAdapter = new DaftarJurnalUserAdapter(this,database.getAllDataJurnal());
+        dataAdapter = new DaftarJurnalUserAdapter(this,database.getDataJurnalUser(curent_user));
         jurnal_list.setAdapter(dataAdapter);
 
         dataAdapter.setOnClickListenerData(new DaftarJurnalUserAdapter.OnClickListenerData() {
@@ -82,7 +85,7 @@ public class DaftarJurnalUserActivity extends AppCompatActivity {
                                     public void onClick(DialogInterface dialog, int which) {
                                         database.deleteDataJurnal(id);
                                         popupData.dismiss();
-                                        dataAdapter.swapCursor(database.getAllDataJurnal());
+                                        dataAdapter.swapCursor(database.getDataJurnalUser(curent_user));
                                     }
                                 }).setNegativeButton("Tidak", new DialogInterface.OnClickListener() {
                                     @Override
@@ -112,6 +115,6 @@ public class DaftarJurnalUserActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        dataAdapter.swapCursor(database.getAllDataJurnal());
+        dataAdapter.swapCursor(database.getDataJurnalUser(curent_user));
     }
 }

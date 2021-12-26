@@ -1,6 +1,7 @@
 package id.vigyan.rumahjurnal;
 
 import android.content.Context;
+import android.content.Intent;
 import android.database.Cursor;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,6 +9,8 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.widget.AppCompatButton;
+import androidx.appcompat.widget.AppCompatImageButton;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class DaftarJurnalAdapter extends RecyclerView.Adapter<DaftarJurnalAdapter.DaftarJurnalViewHolder> {
@@ -54,6 +57,7 @@ public class DaftarJurnalAdapter extends RecyclerView.Adapter<DaftarJurnalAdapte
 
     public class DaftarJurnalViewHolder extends RecyclerView.ViewHolder{
         private TextView judul_jurnal, nama_penulis, doi, tahun_terbit;
+        private AppCompatImageButton buka_jurnal;
 
         public DaftarJurnalViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -61,6 +65,17 @@ public class DaftarJurnalAdapter extends RecyclerView.Adapter<DaftarJurnalAdapte
             nama_penulis = itemView.findViewById(R.id.nama_penulis);
             doi = itemView.findViewById(R.id.doi);
             tahun_terbit = itemView.findViewById(R.id.tahun_terbit);
+            buka_jurnal = itemView.findViewById(R.id.buka_jurnal);
+
+            buka_jurnal.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    long position = (long) itemView.getTag();
+                    Intent intent1 = new Intent(mContext, ViewDataActivity.class);
+                    intent1.putExtra("ed_id",position);
+                    mContext.startActivity(intent1);
+                }
+            });
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
