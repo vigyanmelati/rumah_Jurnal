@@ -27,42 +27,7 @@
             android:textAlignment="center"
             />
 
-        <androidx.cardview.widget.CardView
-            android:id="@+id/search_bar"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1.5"
-            android:layout_marginHorizontal="10dp"
-            android:layout_marginTop="30dp"
-            app:cardBackgroundColor="@color/white"
-            app:cardCornerRadius="10dp"
-            app:cardElevation="8dp">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
-
-                <EditText
-                    android:id="@+id/search"
-                    android:layout_width="300dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:layout_marginHorizontal="15dp"
-                    android:background="@null"
-                    android:drawableStart="@drawable/ic_search"
-                    android:drawablePadding="11dp"
-                    android:fontFamily="@font/roboto_light"
-                    android:inputType="textShortMessage"
-                    android:selectAllOnFocus="true"
-                    android:hint="Cari Jurnal"
-                    android:textColor="@color/black"
-                    android:textColorHint="#DADADA"
-                    android:textSize="14sp" />
-            </LinearLayout>
-        </androidx.cardview.widget.CardView>
-
-<!--        <androidx.recyclerview.widget.RecyclerView-->
+        <!--        <androidx.recyclerview.widget.RecyclerView-->
 <!--            android:id="@+id/kategori_list"-->
 <!--            android:layout_width="match_parent"-->
 <!--            android:layout_height="0dp"-->
