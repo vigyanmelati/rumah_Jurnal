@@ -190,4 +190,12 @@ public class CreateDataActivity extends AppCompatActivity {
         });
         dialog.show();
     }
+
+    @Override
+    public void onBackPressed() {
+        Intent myIntent = new Intent(CreateDataActivity.this, DaftarJurnalUserActivity.class);
+        startActivity(myIntent);
+        finish();
+        return;
+    }
 }

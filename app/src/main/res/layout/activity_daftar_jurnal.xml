@@ -43,7 +43,7 @@
                 android:layout_height="match_parent"
                 android:orientation="horizontal">
 
-                <androidx.appcompat.widget.AppCompatTextView
+                <EditText
                     android:id="@+id/search"
                     android:layout_width="300dp"
                     android:layout_height="wrap_content"

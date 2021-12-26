@@ -13,6 +13,8 @@ import androidx.appcompat.widget.AppCompatButton;
 import androidx.appcompat.widget.AppCompatImageButton;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.util.ArrayList;
+
 public class DaftarJurnalAdapter extends RecyclerView.Adapter<DaftarJurnalAdapter.DaftarJurnalViewHolder> {
     private Context mContext;
     private Cursor mCursor;
@@ -105,4 +107,5 @@ public class DaftarJurnalAdapter extends RecyclerView.Adapter<DaftarJurnalAdapte
             this.notifyDataSetChanged();
         }
     }
+
 }

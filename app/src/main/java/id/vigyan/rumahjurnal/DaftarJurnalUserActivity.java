@@ -117,4 +117,12 @@ public class DaftarJurnalUserActivity extends AppCompatActivity {
         super.onResume();
         dataAdapter.swapCursor(database.getDataJurnalUser(curent_user));
     }
+
+    @Override
+    public void onBackPressed() {
+        Intent myIntent = new Intent(DaftarJurnalUserActivity.this, DashboardActivity.class);
+        startActivity(myIntent);
+        finish();
+        return;
+    }
 }

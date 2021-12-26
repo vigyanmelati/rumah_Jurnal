@@ -58,7 +58,7 @@
     <string name="edit_pop">Edit Data</string>
     <string name="hapus">Hapus Data</string>
     <string name="sukses">Action Sukses</string>
-    <string name="isi_alert">Message Alert</string>
+    <string name="isi_alert">Data Jurnal Berhasil Disimpan</string>
     <string name="sukses_regist">Registrasi Sukses</string>
     <string name="isi_alert_regitrasi">Silahkan login menggunakan akun anda</string>
     <string name="sukses_edit">Edit User Sukses</string>

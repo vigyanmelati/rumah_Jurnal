@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class ViewDataActivity extends AppCompatActivity {
     private EditText viewJudul, viewNama, viewVol, viewIssn, viewDoi, viewPenulis, viewTahun, viewLink, viewKategori;
@@ -25,7 +26,7 @@ public class ViewDataActivity extends AppCompatActivity {
         setContentView(R.layout.activity_view_data);
 
         intent2 = getIntent();
-        id = intent2.getLongExtra(DBHandler.row_id_jurnal,0);
+        id = intent2.getLongExtra("ed_id",0);
         dbHandler = new DBHandler(this);
         viewJudul = findViewById(R.id.viewJudul);
         viewNama = findViewById(R.id.viewNama);
@@ -38,6 +39,15 @@ public class ViewDataActivity extends AppCompatActivity {
         viewKategori = findViewById(R.id.viewKategori);
         btn_view = findViewById(R.id.btn_view);
         btn_view.setOnClickListener(clickListener);
+        viewJudul.setFocusable(false);
+        viewNama.setFocusable(false);
+        viewVol.setFocusable(false);
+        viewIssn.setFocusable(false);
+        viewDoi.setFocusable(false);
+        viewPenulis.setFocusable(false);
+        viewLink.setFocusable(false);
+        viewTahun.setFocusable(false);
+        viewKategori.setFocusable(false);
         getData();
     }
 
@@ -56,7 +66,7 @@ public class ViewDataActivity extends AppCompatActivity {
             int id_userdb = cursor.getInt(cursor.getColumnIndex(DBHandler.row_id_user_jurnal));
 
             viewJudul.setText(juduldb);
-            viewPenulis.setText(namadb);
+            viewNama.setText(namadb);
             viewVol.setText(voldb);
             viewIssn.setText(issndb);
             viewDoi.setText(doidb);
@@ -76,6 +86,7 @@ public class ViewDataActivity extends AppCompatActivity {
     };
 
     private void openURL() {
+        Toast.makeText(this, linkdb, Toast.LENGTH_SHORT).show();
         Uri uri = Uri.parse(linkdb);
         Intent intent = new Intent(Intent.ACTION_VIEW, uri);
         startActivity(intent);
