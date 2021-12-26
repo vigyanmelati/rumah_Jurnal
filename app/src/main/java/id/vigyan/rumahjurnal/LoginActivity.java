@@ -47,7 +47,6 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
     }
-
     private void getValidate(){
         if(login_email.length() == 0 || Patterns.EMAIL_ADDRESS.matcher(login_email.getText().toString()).matches() == false){
             login_email.setError("Isi kolom Email dengan benar");
