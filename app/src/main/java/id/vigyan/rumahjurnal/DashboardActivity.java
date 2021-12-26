@@ -6,23 +6,33 @@ import androidx.cardview.widget.CardView;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import id.vigyan.rumahjurnal.Auth.Auth;
 
 public class DashboardActivity extends AppCompatActivity {
+    private TextView tv_nama_user;
     private CardView daftarJurnalUmum, daftarJurnalAnda, editProfil, tentangKami;
     private Button logout;
+    private long current_user;
+    DBHandler dbHandler;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard);
 
+        dbHandler = new DBHandler(this);
 
+        current_user = Auth.getInstance().getPreferenceCurentUser(DashboardActivity.this);
+
+        tv_nama_user = findViewById(R.id.tv_nama_user);
         logout = findViewById(R.id.logout);
         daftarJurnalUmum = findViewById(R.id.daftarJurnalUmum);
         daftarJurnalAnda = findViewById(R.id.daftarJurnalAnda);
@@ -34,6 +44,8 @@ public class DashboardActivity extends AppCompatActivity {
         editProfil.setOnClickListener(clickListener);
         tentangKami.setOnClickListener(clickListener);
         logout.setOnClickListener(clickListener);
+
+        getUser();
     }
 
     public View.OnClickListener clickListener = new View.OnClickListener() {
@@ -53,6 +65,15 @@ public class DashboardActivity extends AppCompatActivity {
         }
     };
 
+    private void getUser(){
+        Cursor cursor = dbHandler.getUser(current_user);
+        if(cursor.moveToFirst()){
+            String nama = cursor.getString((Integer) cursor.getColumnIndex(DBHandler.row_nama_user));
+
+            tv_nama_user.setText(nama);
+
+        }
+    }
     public void getLogout(){
         Auth.getInstance().logout(getApplicationContext());
         Intent intent = new Intent(getApplicationContext(), LoginActivity.class);

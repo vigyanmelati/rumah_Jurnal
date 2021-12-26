@@ -61,7 +61,10 @@
     <string name="isi_alert">Message Alert</string>
     <string name="sukses_regist">Registrasi Sukses</string>
     <string name="isi_alert_regitrasi">Silahkan login menggunakan akun anda</string>
+    <string name="sukses_edit">Edit User Sukses</string>
+    <string name="isi_alert_edit">Data Anda berhasil tersimpan</string>
     <string name="syarat">Dengan melakukan regitrasi, anda berarti sudah menyetujui Syarat dan Ketentuan dari aplikasi ini</string>
     <string name="logout">Logout</string>
     <string name="isi_alert_logout">Anda yakin ingin logout?</string>
+    <string name="dashboard">"Yuk cari refrensi belajar di aplikasi Rumah Jurnal, disini kamu bisa mencari jurnal untuk keperluan belajar atau buat tugas"</string>
 </resources>

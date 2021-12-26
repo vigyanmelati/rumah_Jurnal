@@ -1,10 +1,15 @@
 package id.vigyan.rumahjurnal;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.ContentValues;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
+import android.util.Patterns;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -36,7 +41,7 @@ public class EditUserActivity extends AppCompatActivity {
         btn_simpan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                getValidate();
             }
         });
 
@@ -58,7 +63,31 @@ public class EditUserActivity extends AppCompatActivity {
         }
     }
 
-    public void sendEdit(){
+    public void getValidate(){
+        if(edt_nama.length() == 0 ) {
+            edt_nama.setError("Mohon isi kolom Username");
+            edt_nama.requestFocus();
+        }else if(edt_email.length() == 0 || Patterns.EMAIL_ADDRESS.matcher(edt_email.getText().toString()).matches() == false){
+            edt_email.setError("Isi kolom Email dengan benar");
+            edt_email.requestFocus();
+        }else if(edt_password.length() == 0 ){
+            edt_password.setError("Mohon isi kolom Password");
+            edt_password.requestFocus();
+        }else if(edt_confirm_password.length() == 0 ){
+            edt_confirm_password.setError("Mohon isi kolom Konfirmasi Password");
+            edt_confirm_password.requestFocus();
+        }else {
+            String check_pass = edt_confirm_password.getText().toString();
+            if (edt_password.getText().toString().equals(check_pass)) {
+                sendUpdate();
+            } else {
+                edt_confirm_password.setError("Konfirmasi password salah, harap gunakan password yang sama");
+                edt_confirm_password.requestFocus();
+            }
+        }
+    }
+
+    public void sendUpdate(){
         String nama = edt_nama.getText().toString();
         String email = edt_email.getText().toString();
         String password = edt_password.getText().toString();
@@ -67,5 +96,26 @@ public class EditUserActivity extends AppCompatActivity {
         values.put(DBHandler.row_email, email);
         values.put(DBHandler.row_password, password);
         dbHandler.updateDataUser(values, current_user);
+        DialogFormRegist();
+    }
+
+    private void DialogFormRegist(){
+
+        AlertDialog.Builder  dialog = new AlertDialog.Builder(EditUserActivity.this);
+        LayoutInflater inflater = getLayoutInflater();
+        View dialogView = inflater.inflate(R.layout.alert_dialogs_edit, null);
+        dialog.setView(dialogView);
+        dialog.setCancelable(true);
+
+        dialog.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+                Intent intent1 = new Intent(EditUserActivity.this, DashboardActivity.class);
+                startActivity(intent1);
+            }
+        });
+        dialog.show();
+
     }
 }
