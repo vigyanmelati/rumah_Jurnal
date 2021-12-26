@@ -3,7 +3,7 @@ package id.vigyan.rumahjurnal;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.Dialog;
+import android.app.DatePickerDialog;
 import android.content.ContentValues;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -12,25 +12,37 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.List;
+
+import id.vigyan.rumahjurnal.Auth.Auth;
+
 public class CreateDataActivity extends AppCompatActivity {
-    private EditText createJudul, createNama, createVol, createIssn, createDoi, createPenulis, createIdUser;
-    private Spinner createTahun, createKategori;
+    private EditText createJudul, createNama, createVol, createIssn, createDoi, createPenulis, createTahun, createLink;
+    private Spinner createKategori;
     private Button btn_simpan, btn_batal;
     private TextView create_data;
-    String judul, nama, vol, issn, doi,penulis, tahun, kategori;
+    String judul, nama, vol, issn, doi,penulis, tahun, kategori, link;
+    final Calendar calendar = Calendar.getInstance();
     int id_user;
+    Long curent_user;
     DBHandler dbHandler;
     private long id;
     private Intent intent2;
     AlertDialog.Builder dialog;
     LayoutInflater inflater;
     View dialogView;
+    ArrayList<DBHandler> arrayModelDb;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,7 +59,7 @@ public class CreateDataActivity extends AppCompatActivity {
 //            create_data.setText("Buat Data Jurnal Baru");
             setTitle("Tambah Data");
         }
-
+        arrayModelDb = new ArrayList<DBHandler>();
         create_data = findViewById(R.id.createData);
         createJudul = findViewById(R.id.createJudul);
         createNama = findViewById(R.id.createNama);
@@ -55,7 +67,7 @@ public class CreateDataActivity extends AppCompatActivity {
         createIssn = findViewById(R.id.createIssn);
         createDoi = findViewById(R.id.createDoi);
         createPenulis = findViewById(R.id.createPenulis);
-        createIdUser = findViewById(R.id.createIdUser);
+        createLink = findViewById(R.id.createLink);
         createTahun = findViewById(R.id.createTahun);
         createKategori = findViewById(R.id.createKategori);
         btn_simpan = findViewById(R.id.btn_simpan);
@@ -63,6 +75,22 @@ public class CreateDataActivity extends AppCompatActivity {
         btn_batal = findViewById(R.id.btn_batal);
         btn_batal.setOnClickListener(clickListener);
         dbHandler = new DBHandler(this);
+        createTahun.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DatePickerDialog datePickerDialog = new DatePickerDialog(CreateDataActivity.this, new DatePickerDialog.OnDateSetListener() {
+                    @Override
+                    public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+                        calendar.set(Calendar.YEAR,year);
+                        calendar.set(Calendar.MONTH,month);
+                        calendar.set(Calendar.DAY_OF_MONTH,dayOfMonth);
+                        SimpleDateFormat simpleDateFormatTanggal=new SimpleDateFormat("yyyy");
+                        createTahun.setText(simpleDateFormatTanggal.format(calendar.getTime()));
+                    }
+                },calendar.get(Calendar.YEAR),calendar.get(Calendar.MONTH),calendar.get(Calendar.DAY_OF_MONTH));
+                datePickerDialog.show();
+            }
+        });
         getData();
     }
 
@@ -75,17 +103,21 @@ public class CreateDataActivity extends AppCompatActivity {
             String issndb = cursor.getString(cursor.getColumnIndex(DBHandler.row_issn));
             String doidb = cursor.getString(cursor.getColumnIndex(DBHandler.row_doi));
             String penulisdb = cursor.getString(cursor.getColumnIndex(DBHandler.row_penulis));
-//            String tahundb = cursor.getString(cursor.getColumnIndex(DBHandler.row_tahun));
-//            String kategoridb = cursor.getString(cursor.getColumnIndex(DBHandler.row_kategori));
+            String tahundb = cursor.getString(cursor.getColumnIndex(DBHandler.row_tahun));
+            String linkdb = cursor.getString(cursor.getColumnIndex(DBHandler.row_link));
+            String kategoridb = cursor.getString(cursor.getColumnIndex(DBHandler.row_kategori));
             int id_userdb = cursor.getInt(cursor.getColumnIndex(DBHandler.row_id_user_jurnal));
 
+//            createKategori.setSelection(arrayModelDb.indexOf(kategoridb));
+            createKategori.setSelection(((ArrayAdapter)createKategori.getAdapter()).getPosition(kategoridb));
             createJudul.setText(juduldb);
             createNama.setText(namadb);
             createVol.setText(voldb);
             createIssn.setText(issndb);
             createDoi.setText(doidb);
             createPenulis.setText(penulisdb);
-            createIdUser.setText(String.valueOf(id_userdb));
+            createLink.setText(linkdb);
+            createTahun.setText(tahundb);
         }
 
     }
@@ -107,9 +139,11 @@ public class CreateDataActivity extends AppCompatActivity {
                     issn = createIssn.getText().toString();
                     doi = createDoi.getText().toString();
                     penulis = createPenulis.getText().toString();
-                    id_user  = Integer.parseInt(String.valueOf(createIdUser.getText()));
-                    tahun = createTahun.getSelectedItem().toString();
+//                    id_user  = Integer.parseInt(String.valueOf(createIdUser.getText()));
+                    tahun = createTahun.getText().toString();
                     kategori = createKategori.getSelectedItem().toString();
+                    link = createLink.getText().toString();
+                    curent_user = Auth.getInstance().getPreferenceCurentUser(CreateDataActivity.this);
 
                     ContentValues values = new ContentValues();
                     values.put(DBHandler.row_jurnal, judul);
@@ -118,9 +152,11 @@ public class CreateDataActivity extends AppCompatActivity {
                     values.put(DBHandler.row_issn, issn);
                     values.put(DBHandler.row_doi, doi);
                     values.put(DBHandler.row_penulis, penulis);
-                    values.put(DBHandler.row_id_user_jurnal, id_user);
+//                    values.put(DBHandler.row_id_user_jurnal, id_user);
                     values.put(DBHandler.row_tahun, tahun);
                     values.put(DBHandler.row_kategori, kategori);
+                    values.put(DBHandler.row_link, link);
+                    values.put(DBHandler.row_id_user_jurnal, curent_user);
                     if(intent2.hasExtra(DBHandler.row_id_jurnal)){
                         dbHandler.updateDataJurnal(values,id);
                     }else {
@@ -152,8 +188,6 @@ public class CreateDataActivity extends AppCompatActivity {
                 dialog.dismiss();
             }
         });
-
         dialog.show();
-
     }
 }
