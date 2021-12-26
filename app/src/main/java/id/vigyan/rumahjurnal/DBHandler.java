@@ -109,11 +109,35 @@ public class DBHandler extends SQLiteOpenHelper {
         String [] selectionArgs = {email, password};
         Cursor cursor = db.query(table_user, columns, selections, selectionArgs, null, null, null);
         int count = cursor.getCount();
-        db.close();
         if(count>0){
             return true;
         }else{
             return false;
         }
+    }
+
+    public long getIdUser(String email, String password){
+        long id_user = 0;
+        SQLiteDatabase DB = this.getWritableDatabase();
+        String[] columns = {row_id_user};
+        String selection = row_email + "=?" + " and " + row_password + "=?";
+        String[] selectionArgs = { email, password };
+        Cursor cursor = db.query(table_user, columns, selection, selectionArgs, null, null, null);
+        int cursorCount = cursor.getCount();
+        cursor.moveToFirst();
+        id_user = cursor.getLong(0);
+        cursor.close();
+        if (cursorCount > 0){
+            return id_user;
+        }
+        return id_user;
+    }
+
+    public Cursor getUser(long id){
+        return db.rawQuery("SELECT*FROM " + table_user + " WHERE " + row_id_user + "=" + id, null);
+    }
+
+    public void deleteUser(long id){
+        db.delete(table_user, row_id_user + "=" + id, null);
     }
 }

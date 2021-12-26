@@ -6,83 +6,92 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@drawable/bg_image"
+    android:gravity="center"
     tools:context=".RegisterActivity">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="start"
         android:text="@string/buat"
         android:fontFamily="@font/roboto_bold"
+        android:layout_marginLeft="40dp"
         android:textSize="28dp"
-        android:layout_marginTop="130dp"
-        android:layout_marginLeft="50dp"
         android:textColor="@color/black"/>
 
     <EditText
         android:id="@+id/regis_nama"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="60dp"
+        android:layout_gravity="center"
         android:background="@drawable/frame"
-        android:inputType="textEmailAddress"
-        tools:layout_editor_absoluteX="56dp"
-        tools:layout_editor_absoluteY="287dp"
+        android:inputType="textPersonName"
         android:layout_marginTop="50dp"
-        android:layout_marginLeft="50dp"
+        android:layout_marginHorizontal="15dp"
         android:hint="@string/nama"
         android:paddingLeft="20dp"/>
 
     <EditText
         android:id="@+id/regis_email"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="60dp"
+        android:layout_gravity="center"
         android:background="@drawable/frame"
-        android:inputType="textEmailAddress"
-        tools:layout_editor_absoluteX="56dp"
-        tools:layout_editor_absoluteY="287dp"
+        android:inputType="textPersonName"
         android:layout_marginTop="20dp"
-        android:layout_marginLeft="50dp"
+        android:layout_marginHorizontal="15dp"
         android:hint="@string/email"
-        android:paddingLeft="10dp"/>
+        android:paddingLeft="20dp"/>
 
     <EditText
         android:id="@+id/regis_pass"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="60dp"
+        android:layout_gravity="center"
         android:background="@drawable/frame"
-        tools:layout_editor_absoluteX="56dp"
-        tools:layout_editor_absoluteY="380dp"
         android:inputType="textPassword"
         android:layout_marginTop="20dp"
-        android:layout_marginLeft="50dp"
+        android:layout_marginHorizontal="15dp"
         android:hint="@string/pass"
-        android:paddingLeft="10dp"/>
+        android:paddingLeft="20dp"/>
 
-    <ImageView
-        android:id="@+id/imageView6"
+    <EditText
+        android:id="@+id/confirm_pass"
         android:layout_width="wrap_content"
+        android:layout_height="60dp"
+        android:layout_gravity="center"
+        android:background="@drawable/frame"
+        android:inputType="textPassword"
+        android:layout_marginTop="20dp"
+        android:layout_marginHorizontal="15dp"
+        android:hint="@string/confirm_pass"
+        android:paddingLeft="20dp"/>
+
+    <TextView
+        android:layout_width="340dp"
         android:layout_height="wrap_content"
-        app:srcCompat="@drawable/tulisan_register"
-        tools:layout_editor_absoluteX="130dp"
-        tools:layout_editor_absoluteY="596dp"
-        android:layout_marginLeft="50dp"
-        android:layout_marginTop="20dp"/>
+        android:layout_marginTop="10dp"
+        android:text="@string/syarat"
+        android:textColor="@color/abu"
+        android:fontFamily="@font/roboto_regular"/>
 
     <Button
         android:id="@+id/btn_daftar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:width="342dp"
+        android:layout_gravity="center"
+        android:width="350dp"
         android:height="64dp"
         android:backgroundTint="@color/ungu"
         android:text="@string/daftar"
-        tools:layout_editor_absoluteX="56dp"
-        tools:layout_editor_absoluteY="483dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginLeft="50dp"/>
+        android:layout_marginTop="40dp"
+        android:layout_marginHorizontal="15dp"/>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:gravity="center"
         android:orientation="horizontal">
 
         <TextView
@@ -90,9 +99,7 @@
             android:layout_height="wrap_content"
             android:textSize= "16sp"
             android:text="@string/daftar_text"
-            android:fontFamily="@font/roboto_black"
-            android:layout_marginLeft="100dp"
-            android:layout_marginTop="60dp"/>
+            android:fontFamily="@font/roboto_black" />
 
         <TextView
             android:id="@+id/tv_login"
@@ -102,7 +109,6 @@
             android:text="@string/logIn"
             android:fontFamily="@font/roboto_black"
             android:layout_marginLeft="5dp"
-            android:layout_marginTop="60dp"
             android:textColor="@color/blue"/>
 
     </LinearLayout>
