@@ -5,69 +5,79 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:gravity="center"
     android:background="@drawable/bg_image"
     tools:context=".RegisterActivity">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Edit Profil"
+        android:layout_gravity="start"
+        android:text="@string/edit_pop"
         android:fontFamily="@font/roboto_bold"
+        android:layout_marginLeft="40dp"
         android:textSize="28dp"
-        android:layout_marginTop="100dp"
-        android:layout_marginLeft="50dp"
         android:textColor="@color/black"/>
 
+
     <EditText
-        android:id="@+id/regis_nama"
+        android:id="@+id/edt_nama"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="60dp"
+        android:layout_gravity="center"
         android:background="@drawable/frame"
-        android:inputType="textEmailAddress"
-        tools:layout_editor_absoluteX="56dp"
-        tools:layout_editor_absoluteY="287dp"
+        android:inputType="textPersonName"
         android:layout_marginTop="50dp"
-        android:layout_marginLeft="50dp"
+        android:layout_marginHorizontal="15dp"
         android:hint="@string/nama"
         android:paddingLeft="20dp"/>
 
     <EditText
-        android:id="@+id/regis_email"
+        android:id="@+id/edt_email"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="60dp"
+        android:layout_gravity="center"
         android:background="@drawable/frame"
-        android:inputType="textEmailAddress"
-        tools:layout_editor_absoluteX="56dp"
-        tools:layout_editor_absoluteY="287dp"
+        android:inputType="textPersonName"
         android:layout_marginTop="20dp"
-        android:layout_marginLeft="50dp"
+        android:layout_marginHorizontal="15dp"
         android:hint="@string/email"
-        android:paddingLeft="10dp"/>
+        android:paddingLeft="20dp"/>
 
     <EditText
-        android:id="@+id/regis_pass"
+        android:id="@+id/edt_pass"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="60dp"
+        android:layout_gravity="center"
         android:background="@drawable/frame"
-        tools:layout_editor_absoluteX="56dp"
-        tools:layout_editor_absoluteY="380dp"
         android:inputType="textPassword"
         android:layout_marginTop="20dp"
-        android:layout_marginLeft="50dp"
+        android:layout_marginHorizontal="15dp"
         android:hint="@string/pass"
-        android:paddingLeft="10dp"/>
+        android:paddingLeft="20dp"/>
+
+    <EditText
+        android:id="@+id/edt_confirm_pass"
+        android:layout_width="wrap_content"
+        android:layout_height="60dp"
+        android:layout_gravity="center"
+        android:background="@drawable/frame"
+        android:inputType="textPassword"
+        android:layout_marginTop="20dp"
+        android:layout_marginHorizontal="15dp"
+        android:hint="@string/confirm_pass"
+        android:paddingLeft="20dp"/>
 
     <Button
         android:id="@+id/btn_simpan"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:width="342dp"
+        android:layout_gravity="center"
+        android:width="350dp"
         android:height="64dp"
         android:backgroundTint="@color/ungu"
-        android:text="Simpan"
-        tools:layout_editor_absoluteX="56dp"
-        tools:layout_editor_absoluteY="483dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginLeft="50dp"/>
+        android:text="@string/simpan"
+        android:layout_marginTop="40dp"
+        android:layout_marginHorizontal="15dp"/>
 
 </LinearLayout>

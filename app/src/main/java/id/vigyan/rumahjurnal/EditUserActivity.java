@@ -2,6 +2,7 @@ package id.vigyan.rumahjurnal;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.ContentValues;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.view.View;
@@ -11,7 +12,7 @@ import android.widget.Toast;
 
 import id.vigyan.rumahjurnal.Auth.Auth;
 
-public class EditDataActivity extends AppCompatActivity {
+public class EditUserActivity extends AppCompatActivity {
     private EditText edt_nama, edt_email, edt_password, edt_confirm_password;
     private Button btn_simpan;
     private long current_user;
@@ -20,9 +21,11 @@ public class EditDataActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_edit_data);
+        setContentView(R.layout.activity_edit_user);
 
-        current_user = Auth.getInstance().getPreferenceCurentUser(EditDataActivity.this);
+        dbHandler = new DBHandler(this);
+
+        current_user = Auth.getInstance().getPreferenceCurentUser(EditUserActivity.this);
 
         edt_nama = findViewById(R.id.edt_nama);
         edt_email = findViewById(R.id.edt_email);
@@ -33,7 +36,7 @@ public class EditDataActivity extends AppCompatActivity {
         btn_simpan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(EditDataActivity.this, "hallo", Toast.LENGTH_SHORT).show();
+
             }
         });
 
@@ -55,4 +58,14 @@ public class EditDataActivity extends AppCompatActivity {
         }
     }
 
+    public void sendEdit(){
+        String nama = edt_nama.getText().toString();
+        String email = edt_email.getText().toString();
+        String password = edt_password.getText().toString();
+        ContentValues values = new ContentValues();
+        values.put(DBHandler.row_nama_user, nama);
+        values.put(DBHandler.row_email, email);
+        values.put(DBHandler.row_password, password);
+        dbHandler.updateDataUser(values, current_user);
+    }
 }
