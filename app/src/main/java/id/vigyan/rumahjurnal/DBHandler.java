@@ -11,7 +11,7 @@ public class DBHandler extends SQLiteOpenHelper {
     public static final String db_name="db_rumahjurnal";
     public static final String table_user="tb_user";
     public static final String table_jurnal="tb_jurnal";
-    public static final int VER=3;
+    public static final int VER=4;
 
     public static final String row_id_user ="id_user";
     public static final String row_nama_user ="nama_user";
@@ -27,6 +27,7 @@ public class DBHandler extends SQLiteOpenHelper {
     public static final String row_tahun="tahun";
     public static final String row_penulis="penulis";
     public static final String row_kategori="kategori";
+    public static final String row_link="link";
     public static final String row_id_user_jurnal="id_user_jurnal";
 
     private SQLiteDatabase db;
@@ -56,6 +57,7 @@ public class DBHandler extends SQLiteOpenHelper {
                 + row_tahun + " TEXT,"
                 + row_penulis + " TEXT,"
                 + row_kategori + " TEXT,"
+                + row_link + " TEXT,"
                 + row_id_user_jurnal + " INTEGER,"
                 + " FOREIGN KEY ("+row_id_user_jurnal+") REFERENCES "+table_user+"("+row_id_user+"));";
         db.execSQL(query2);
@@ -86,6 +88,10 @@ public class DBHandler extends SQLiteOpenHelper {
 
     public Cursor getDataJurnal(long id){
         return db.rawQuery("SELECT*FROM " + table_jurnal + " WHERE " + row_id_jurnal + "=" + id, null);
+    }
+
+    public Cursor getDataJurnalUser(long id){
+        return db.rawQuery("SELECT*FROM " + table_jurnal + " WHERE " + row_id_user_jurnal + "=" + id, null);
     }
 
     public void insertDataUser(ContentValues values){
