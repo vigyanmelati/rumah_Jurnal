@@ -20,7 +20,7 @@
             android:layout_height="0dp"
             android:layout_weight="1.5"
             android:layout_marginTop="35dp"
-            android:text="Daftar Jurnal"
+            android:text="View Jurnal"
             android:fontFamily="@font/roboto_bold"
             android:textSize="28dp"
             android:textColor="@color/black"

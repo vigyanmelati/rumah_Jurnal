@@ -21,8 +21,8 @@
             android:orientation="vertical">
             <TextView
                 android:id="@+id/createData"
-                android:text="@string/create"
-                android:layout_width="276dp"
+                android:text="Data Jurnal"
+                android:layout_width="wrap_content"
                 android:layout_height="33dp"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentTop="true"
