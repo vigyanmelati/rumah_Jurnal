@@ -15,7 +15,6 @@ public class DaftarJurnalActivity extends AppCompatActivity {
     private RecyclerView jurnal_list;
     private DaftarJurnalAdapter dataAdapter;
     private DBHandler database;
-    private EditText search;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,23 +26,6 @@ public class DaftarJurnalActivity extends AppCompatActivity {
         jurnal_list.setLayoutManager(new LinearLayoutManager(this));
         dataAdapter = new DaftarJurnalAdapter(this,database.getAllDataJurnal());
         jurnal_list.setAdapter(dataAdapter);
-        search = findViewById(R.id.search);
-        search.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-
-            }
-        });
     }
 
     @Override
