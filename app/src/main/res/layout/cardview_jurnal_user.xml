@@ -110,14 +110,14 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
 
-                <androidx.appcompat.widget.AppCompatTextView
-                    android:layout_width="50dp"
-                    android:layout_height="15dp"
-                    android:fontFamily="@font/roboto_bold"
-                    android:text="Tahun Terbit"
-                    android:textColor="@color/black"
-                    android:textSize="12sp"
-                    android:textAlignment="textStart"/>
+<!--                <androidx.appcompat.widget.AppCompatTextView-->
+<!--                    android:layout_width="50dp"-->
+<!--                    android:layout_height="15dp"-->
+<!--                    android:fontFamily="@font/roboto_bold"-->
+<!--                    android:text="Tahun Terbit"-->
+<!--                    android:textColor="@color/black"-->
+<!--                    android:textSize="12sp"-->
+<!--                    android:textAlignment="textStart"/>-->
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/tahun_terbit"
